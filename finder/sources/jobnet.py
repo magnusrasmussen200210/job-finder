@@ -34,10 +34,10 @@ def _job(ad, query):
         title=title,
         company=(ad.get("hiringOrgName") or "").strip(),
         url=f"https://jobnet.dk/find-job/{ad['jobAdId']}",
-        location=" ".join(str(x) for x in (pc, ad.get("postalDistrictName")) if x),
+        location=" ".join(str(x) for x in (pc, ad.get("postalDistrictName")) if x) or ad.get("municipality") or "",
         postcode=int(pc) if str(pc or "").isdigit() else None,
         text=html_to_text(ad.get("description") or ""),
-        hours="deltid" if ad.get("workHourPartTime") else "fuldtid",
+        hours="deltid" if ad.get("workHourPartTime") else None,  # "ikke deltid" afgøres efter teksten
         temporary=temporary,
         deadline=(ad.get("applicationDeadline") or "")[:10] or None,
         posted=(ad.get("publicationDate") or "")[:10] or None,

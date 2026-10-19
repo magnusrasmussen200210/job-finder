@@ -15,6 +15,8 @@ def location_ok(job: Job) -> bool:
     if job.postcode:
         return postcode_ok(job.postcode)
     loc = job.location or ""
+    if not loc and job.source == "Jobnet":
+        return False  # Jobnet søger i hele landet, så uden sted kan vi ikke vide om det er tæt på
     # flere byer ("Aarhus, Silkeborg eller Kolding"): ok hvis bare én er inden for området
     return bool(C.ALLOWED_TOWNS.search(loc)) or not loc
 
@@ -52,8 +54,8 @@ def fill_from_text(job: Job):
     if job.hours is None:
         if C.PART_TIME.search(blob):
             job.hours = "deltid"
-        elif C.FULL_TIME.search(blob):
-            job.hours = "fuldtid"
+        elif C.FULL_TIME.search(blob) or job.source == "Jobnet":
+            job.hours = "fuldtid"  # Jobnet markerer deltid eksplicit
 
 
 def norm(s: str) -> str:

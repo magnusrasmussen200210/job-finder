@@ -60,7 +60,7 @@ EXCLUDE_TITLE = re.compile(
     r"\bsenior|\bsr\.?\s|\blead\b|leder\b|\w*chef\b|head of|director|direktør|\bvp\b|vice president|\bcfo\b|"
     r"\bpartner\b|erfaren|experienced|principal|expert|ekspert|interim|ansvarlig\b|"
     r"student|studie|studerende|praktik|intern\b|internship|elev\b|lærling|apprentice|frivillig|fleksjob|"
-    r"butik|ekspedient|salgsassistent|kasseassistent|lagermedarbejder|chauffør|vagtplan|"
+    r"butik|ekspedient|salgsassistent|kasseassistent|lagermedarbejder|chauffør|vagtplan|arbejdstidsplan|driftsplan|security|sikkerhed|"
     r"sygeplejer|lærer\b|pædagog|læge\b|tandlæge|bioanalytiker|laborant|postdoc|ph\.?d|lektor|professor|"
     r"forsker|researcher|adjunkt|ingeniør|engineer|developer|udvikler|scientist|architect|arkitekt",
     re.I,

@@ -61,3 +61,14 @@ def test_noise_titles():
               "Eksterne lektorer til undervisning på HD"]:
         assert rules.reject_reason(j(t)), t
     assert rules.reject_reason(j("Kasserer", "Vi søger en frivillig kasserer")), "frivillig"
+
+
+def test_jobnet_hours_and_location():
+    x = j("Lønbogholder – 30 timer", source="Jobnet")
+    rules.fill_from_text(x)
+    assert x.hours == "deltid"
+    y = j("Økonomimedarbejder", source="Jobnet")
+    rules.fill_from_text(y)
+    assert y.hours == "fuldtid"
+    assert rules.reject_reason(j("Controller", source="Jobnet", postcode=None, location="")) is not None
+    assert rules.reject_reason(j("Controller", source="Jobnet", postcode=None, location="Thisted")) is not None
