@@ -76,9 +76,12 @@ def label(jobs):
             "deltid": {"workinghours_type": 2},
             "fast": {"employment_type": 1},
             "tidsbegrænset": {"employment_type": 2},
+            "frivillig": {"employment_type": 9},
         }.items():
             sets[name] = {r["tid"] for r in _search_all(q, **flt)} & wanted
         for j in js:
+            if j.id in sets["frivillig"]:
+                j.exclude = "frivillig"
             if j.id in sets["deltid"]:
                 j.hours = "deltid"
             elif j.id in sets["fuldtid"]:
