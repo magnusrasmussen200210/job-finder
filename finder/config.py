@@ -91,7 +91,7 @@ TEMPORARY = re.compile(
     r"maternity|parental leave|ansættelsesperiode|\bfrem til (?:den )?\d|tiltrædelse[^.]{0,40}\bog til\b",
     re.I,
 )
-PART_TIME = re.compile(r"deltid|part[- ]time|\b(?:[12]\d|3[0-4])(?:[,.]\d+)?\s*timer?\s*(?:om|pr\.?|/|i)\s*ugen", re.I)
+PART_TIME = re.compile(r"deltid|part[- ]time|\b(?:[5-9]|[12]\d|3[0-4])(?:[,.]\d+)?\s*timer?\b(?!\s*(?:om dagen|i døgnet|dagligt))", re.I)
 FULL_TIME = re.compile(r"fuldtid|full[- ]time|\b37\s*timer", re.I)
 
 # Kort profil til LLM-vurderingen. Ingen kontaktoplysninger, da repoet er offentligt.
