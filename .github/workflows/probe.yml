@@ -15,4 +15,6 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install playwright==1.47.0 && python -m playwright install --with-deps chromium
-      - run: python tools/probe.py ${{ github.event.inputs.urls }}
+      - env:
+          URLS: ${{ github.event.inputs.urls }}
+        run: python tools/probe.py $URLS
