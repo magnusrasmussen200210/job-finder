@@ -48,6 +48,7 @@ def assess(job: Job) -> dict:
         ),
         messages=[{"role": "user", "content": ad}],
     )
+    print(f"  LLM: {resp.model}, {resp.usage.input_tokens} ind / {resp.usage.output_tokens} ud tokens")
     if resp.stop_reason == "refusal":
         raise RuntimeError("LLM afviste opslaget")
     text = next(b.text for b in resp.content if b.type == "text")

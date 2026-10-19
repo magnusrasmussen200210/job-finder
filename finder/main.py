@@ -156,6 +156,7 @@ def main(argv):
         rules.fill_from_text(j)
 
     use_llm = llm.enabled()
+    print(f"LLM-vurdering: {'til, model ' + C.LLM_MODEL if use_llm else 'fra (ingen ANTHROPIC_API_KEY)'}")
     sent = 0
     for j in candidates:
         r = rules.reject_reason(j)  # LinkedIn-teksten kendes først nu
