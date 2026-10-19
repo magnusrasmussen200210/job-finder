@@ -13,7 +13,7 @@ SCHEMA = {
         "ansaettelse": {"type": "string", "enum": ["tidsbegrænset", "fast", "ukendt"]},
         "periode": {"type": "string", "description": "Fx 'barselsvikariat til aug. 2027'. Tom hvis ukendt eller fast."},
         "by": {"type": "string", "description": "Byen hvor jobbet udføres"},
-        "begrundelse": {"type": "string", "description": "Én kort sætning på dansk om hvorfor scoren er som den er"},
+        "begrundelse": {"type": "string", "description": "Én kort sætning på dansk (højst 25 ord) til kandidaten i du-form om hvorfor scoren er som den er"},
     },
     "required": ["score", "arbejdstid", "ansaettelse", "periode", "by", "begrundelse"],
     "additionalProperties": False,
@@ -44,7 +44,7 @@ def assess(job: Job) -> dict:
         system=(
             "Du vurderer jobopslag for en jobsøgende. Vær realistisk: scor lavt hvis opslaget kræver mere erfaring, "
             "uddannelse eller ledelse end kandidaten har, eller hvis det er butik, studiejob eller praktik. "
-            "Scor højt hvis kandidaten realistisk kan blive kaldt til samtale.\n\n" + C.PROFILE
+            "Scor højt hvis kandidaten realistisk kan blive kaldt til samtale. Skriv begrundelsen direkte til kandidaten i du-form.\n\n" + C.PROFILE
         ),
         messages=[{"role": "user", "content": ad}],
     )
