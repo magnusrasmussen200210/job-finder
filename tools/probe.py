@@ -2,11 +2,15 @@
 import asyncio
 import re
 import sys
+from pathlib import Path
 
 from playwright.async_api import async_playwright
 
 
-async def probe(browser, url):
+OUT = Path("probe-out")
+
+
+async def probe(browser, i, url):
     print(f"\n===== {url}")
     page = await browser.new_page(locale="da-DK")
     calls = []
@@ -18,7 +22,7 @@ async def probe(browser, url):
                 body = await resp.text()
             except Exception:
                 body = ""
-            calls.append((resp.request.method, resp.url, resp.status, len(body), body[:2500], resp.request.post_data))
+            calls.append((resp.request.method, resp.url, resp.status, len(body), body[:20000], resp.request.post_data))
 
     page.on("response", on_response)
     try:
@@ -39,6 +43,9 @@ async def probe(browser, url):
         jobish = [l for l in dict.fromkeys(links) if re.search(r"job|stilling|vis-job|annonce", l, re.I)]
         print("LINKS", len(links), jobish[:25])
         html = await page.content()
+        OUT.mkdir(exist_ok=True)
+        (OUT / f"{i:02d}.html").write_text(f"<!-- {url} -->\n" + html)
+        (OUT / f"{i:02d}.calls.txt").write_text("\n\n".join(f"{m} {s} {u} POST:{pd}\n{b}" for m, u, s, n, b, pd in calls))
         print("HTML", len(html), re.sub(r"\s+", " ", html)[:1500])
         text = await page.inner_text("body")
         print("TEXT", re.sub(r"\s+", " ", text)[:2500])
@@ -50,8 +57,8 @@ async def probe(browser, url):
 async def main(urls):
     async with async_playwright() as p:
         browser = await p.chromium.launch()
-        for u in urls:
-            await probe(browser, u)
+        for i, u in enumerate(urls):
+            await probe(browser, i, u)
         await browser.close()
 
 

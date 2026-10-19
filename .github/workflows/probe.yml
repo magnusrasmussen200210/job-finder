@@ -5,6 +5,8 @@ on:
       urls:
         description: "Mellemrumsseparerede URLs"
         required: true
+permissions:
+  contents: write
 jobs:
   probe:
     runs-on: ubuntu-latest
@@ -18,3 +20,13 @@ jobs:
       - env:
           URLS: ${{ github.event.inputs.urls }}
         run: python tools/probe.py $URLS
+      - name: Gem output på probe-out-branch
+        if: always()
+        run: |
+          git config user.name "job-finder"
+          git config user.email "actions@users.noreply.github.com"
+          git checkout -q --orphan probe-out-${{ github.run_id }}
+          git rm -rqf --cached .
+          git add -f probe-out
+          git commit -qm "probe output"
+          git push -q origin HEAD
