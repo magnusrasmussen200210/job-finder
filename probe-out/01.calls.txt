@@ -1,0 +1,2 @@
+PUT 201 https://www.jobindex.dk/api/cookie-consent/v1/log POST:{"id":"d0d1dfa5-a38a-4ac9-8f5b-97f7473bde17","time":"2026-10-19T10:57:15.600Z","version":1,"terms_version":219,"consent":{}}
+{}

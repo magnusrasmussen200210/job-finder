@@ -1,0 +1,1835 @@
+PUT 201 https://www.jobindex.dk/api/cookie-consent/v1/log POST:{"id":"ffc636d4-ecad-4029-af25-3e511290339a","time":"2026-10-19T10:57:26.008Z","version":1,"terms_version":219,"consent":{}}
+{}
+
+GET 200 https://www.jobindex.dk/api/map/style/standard POST:None
+{
+    "id": "jobindex-standard",
+    "name": "Jobindex Standard",
+    "version": 8,
+    "sources": {
+        "viavector": {
+            "url": "https://jobindex.tiles.viamap.net/sources/v1/viavector.json?token=eyJkcGZ4IjogImpvYmluZGV4IiwgInByaXZzIjogInIxWjByMEYwazZCdFdxUWNPVXlrQi95NlNVcEp2MlFiZ3lYZXRxNEhZNFhPLzNZclcwK0s5NjRIWTRYTy8zWXJSQU53V1E9PSJ9.UE5i0EX5hm7hHNj34KS7VyUBIdL7rQA6YAz0QSSSVAJiuHGEwvAo7Svu0t5UE5iXfAZvc%2BS6eDqv%2FbVw44jdcg",
+            "type": "vector"
+        }
+    },
+    "glyphs": "https://jobindex.tiles.viamap.net/v1/glyphs/{fontstack}/{range}.pbf?token=eyJkcGZ4IjogImpvYmluZGV4IiwgInByaXZzIjogInIxWjByMEYwazZCdFdxUWNPVXlrQi95NlNVcEp2MlFiZ3lYZXRxNEhZNFhPLzNZclcwK0s5NjRIWTRYTy8zWXJSQU53V1E9PSJ9.UE5i0EX5hm7hHNj34KS7VyUBIdL7rQA6YAz0QSSSVAJiuHGEwvAo7Svu0t5UE5iXfAZvc+S6eDqv/bVw44jdcg",
+    "sprite": "https://jobindex.tiles.viamap.net/v1/icons/sprite",
+    "layers": [
+    {
+        "id": "background",
+        "paint": {
+            "background-color": "#e6e7e1"
+        },
+        "type": "background"
+    },
+    {
+        "filter": [
+            "all",
+            [
+                "==",
+                "$type",
+                "Polygon"
+            ],
+            [
+                "==",
+                "class",
+                "residential"
+            ]
+        ],
+        "id": "landuse_residential",
+        "layout": {
+            "visibility": "visible"
+        },
+        "paint": {
+            "fill-color": "#E6E6E6",
+            "fill-opacity": 0.7
+        },
+        "source": "viavector",
+        "source-layer": "landuse",
+        "type": "fill"
+    },
+    {
+        "filter": [
+            "==",
+            "class",
+            "grass"
+        ],
+        "id": "landcover_grass",
+        "paint": {
+            "fill-color": "#AABC8A",
+            "fill-opacity": 0.45
+        },
+        "source": "viavector",
+        "source-layer": "landcover",
+        "type": "fill"
+    },
+    {
+        "filter": [
+            "==",
+            "class",
+            "wood"
+        ],
+        "id": "landcover_wood",
+        "paint": {
+            "fill-color": "#AABC8A",
+            "fill-opacity": {
+                "base": 1,
+                "stops": [
+                    [
+                        8,
+                        0.6
+                    ],
+                    [
+                        22,
+                        1
+                    ]
+                ]
+            }
+        },
+        "source": "viavector",
+        "source-layer": "landcover",
+        "type": "fill"
+    },
+    {
+        "filter": [
+            "all",
+            [
+                "in",
+                "class",
+                "sand"
+            ]
+        ],
+        "id": "landcover_sand",
+        "paint": {
+            "fill-antialias": false,
+            "fill-color": "#edefed",
+            "fill-opacity": 0.9
+        },
+        "source": "viavector",
+        "source-layer": "landcover",
+        "type": "fill"
+    },
+    {
+        "filter": [
+            "==",
+            "subclass",
+            "ice_shelf"
+        ],
+        "id": "landcover_ice-shelf",
+        "layout": {
+            "visibility": "visible"
+        },
+        "paint": {
+            "fill-color": "hsl(47, 26%, 88%)",
+            "fill-opacity": 0.8
+        },
+        "source": "viavector",
+        "source-layer": "landcover",
+        "type": "fill"
+    },
+    {
+        "filter": [
+            "==",
+            "subclass",
+            "glacier"
+        ],
+        "id": "landcover_glacier",
+        "layout": {
+            "visibility": "visible"
+        },
+        "paint": {
+            "fill-color": "#f4f2f4",
+            "fill-opacity": {
+                "base": 1,
+                "stops": [
+                    [
+                        0,
+                        1
+                    ],
+                    [
+                        8,
+                        0.5
+                    ]
+                ]
+            }
+        },
+        "source": "viavector",
+        "source-layer": "landcover",
+        "type": "fill"
+    },
+    {
+        "filter": [
+            "in",
+            "class",
+            "agriculture",
+            "farmland"
+        ],
+        "id": "landuse_agriculture_farmland",
+        "layout": {
+            "visibility": "visible"
+        },
+        "paint": {
+            "fill-color": "#a2c49a",
+            "fill-opacity": 0.45
+        },
+        "source": "viavector",
+        "source-layer": "landuse",
+        "type": "fill"
+    },
+    {
+        "filter": [
+            "in",
+            "class",
+            "national_park",
+            "landcover_nature_reserve",
+            "wetland",
+            "protected_area"
+        ],
+        "id": "landcover_nature_reserve",
+        "paint": {
+            "fill-color": "#abcfa3",
+            "fill-opacity": {
+                "base": 1,
+                "stops": [
+                    [
+                        6,
+                        0
+                    ],
+                    [
+                        7.5,
+                        0.5
+                    ]
+                ]
+            }
+        },
+        "source": "viavector",
+        "source-layer": "park",
+        "type": "fill"
+    },
+    {
+        "filter": [
+            "all",
+            [
+                "==",
+                "$type",
+                "Polygon"
+            ],
+            [
+                "!=",
+                "class",
+                "ocean"
+            ]
+        ],
+        "id": "water_other",
+        "paint": {
+            "fill-color": "#B9D6DB"
+        },
+        "source": "viavector",
+        "source-layer": "water",
+        "type": "fill"
+    },
+    {
+        "filter": [
+            "all",
+            [
+                "==",
+                "$type",
+                "LineString"
+            ],
+            [
+                "!in",
+                "brunnel",
+                "tunnel",
+                "bridge"
+            ]
+        ],
+        "id": "waterway",
+        "paint": {
+            "line-color": "#b4cbe3",
+            "line-opacity": 1,
+            "line-width": {
+                "base": 1.4,
+                "stops": [
+                    [
+                        8,
+                        1
+                    ],
+                    [
+                        20,
+                        8
+                    ]
+                ]
+            }
+        },
+        "source": "viavector",
+        "source-layer": "waterway",
+        "type": "line"
+    },
+    {
+        "id": "building",
+        "paint": {
+            "fill-antialias": true,
+            "fill-color": "#c8c9ca",
+            "fill-opacity": {
+                "base": 1,
+                "stops": [
+                    [
+                        13,
+                        0
+                    ],
+                    [
+                        15,
+                        1
+                    ]
+                ]
+            },
+            "fill-outline-color": {
+                "stops": [
+                    [
+                        15,
+                        "rgba(160,160,161,0)"
+                    ],
+                    [
+                        16,
+                        "rgba(160,160,161,0.7)"
+                    ]
+                ]
+            }
+        },
+        "source": "viavector",
+        "source-layer": "building",
+        "type": "fill"
+    },
+    {
+        "filter": [
+            "==",
+            "class",
+            "ocean"
+        ],
+        "id": "water_ocean",
+        "paint": {
+            "fill-color": "#A1C9CF"
+        },
+        "source": "viavector",
+        "source-layer": "water",
+        "type": "fill"
+    },
+    {
+        "filter": [
+            "all",
+            [
+                "==",
+                "$type",
+                "Polygon"
+            ],
+            [
+                "==",
+                "class",
+                "pier"
+            ]
+        ],
+        "id": "road_area_pier",
+        "layout": {
+            "visibility": "visible"
+        },
+        "paint": {
+            "fill-color": "#d4d2d4"
+        },
+        "source": "viavector",
+        "source-layer": "transportation",
+        "type": "fill"
+    },
+    {
+        "filter": [
+            "all",
+            [
+                "==",
+                "$type",
+                "LineString"
+            ],
+            [
+                "in",
+                "class",
+                "pier"
+            ]
+        ],
+        "id": "road_pier",
+        "layout": {
+            "line-cap": "round",
+            "line-join": "round"
+        },
+        "paint": {
+            "line-color": "#d4d2d4",
+            "line-width": {
+                "base": 1.2,
+                "stops": [
+                    [
+                        15,
+                        1
+                    ],
+                    [
+                        17,
+                        4
+                    ]
+                ]
+            }
+        },
+        "source": "viavector",
+        "source-layer": "transportation",
+        "type": "line"
+    },
+    {
+        "filter": [
+            "all",
+            [
+                "!in",
+                "brunnel",
+                "tunnel"
+            ],
+            [
+                "==",
+                "class",
+                "motorway_link"
+            ]
+        ],
+        "id": "highway_motorway-link-casing",
+        "layout": {
+            "line-cap": "round",
+            "line-join": "round"
+        },
+        "minzoom": 12,
+        "paint": {
+            "line-color": "#ccccbe",
+            "line-opacity": 1,
+            "line-width": {
+                "base": 1.2,
+                "stops": [
+                    [
+                        12,
+                        1
+                    ],
+                    [
+                        13,
+                        3
+                    ],
+                    [
+                        14,
+                        4
+                    ],
+                    [
+                        20,
+                        15
+                    ]
+                ]
+            }
+        },
+        "source": "viavector",
+        "source-layer": "transportation",
+        "type": "line"
+    },
+    {
+        "filter": [
+            "all",
+            [
+                "!in",
+                "brunnel",
+                "tunnel"
+            ],
+            [
+                "in",
+                "class",
+                "primary_link",
+                "secondary_link",
+                "tertiary_link",
+                "trunk_link"
+            ]
+        ],
+        "id": "highway_link-casing",
+        "layout": {
+            "line-cap": "round",
+            "line-join": "round",
+            "visibility": "visible"
+        },
+        "minzoom": 13,
+        "paint": {
+            "line-color": "#c7c7c0",
+            "line-opacity": 1,
+            "line-width": {
+                "base": 1.4,
+                "stops": [
+                    [
+                        6,
+                        0.8
+                    ],
+                    [
+                        20,
+                        36
+                    ]
+                ]
+            }
+        },
+        "source": "viavector",
+        "source-layer": "transportation",
+        "type": "line"
+    },
+    {
+        "filter": [
+            "all",
+            [
+                "==",
+                "$type",
+                "LineString"
+            ],
+            [
+                "all",
+                [
+                    "!=",
+                    "brunnel",
+                    "tunnel"
+                ],
+                [
+                    "in",
+                    "class",
+                    "minor",
+                    "service",
+                    "track"
+                ]
+            ]
+        ],
+        "id": "highway_minor-casing",
+        "layout": {
+            "line-cap": "round",
+            "line-join": "round"
+        },
+        "paint": {
+            "line-color": "#cccccc",
+            "line-opacity": {
+                "stops": [
+                    [
+                        13,
+                        0
+                    ],
+                    [
+                        13.5,
+                        1
+                    ]
+                ]
+            },
+            "line-width": {
+                "base": 1.2,
+                "stops": [
+                    [
+                        12,
+                        0.5
+                    ],
+                    [
+                        13,
+                        1
+                    ],
+                    [
+                        14,
+                        4
+                    ],
+                    [
+                        20,
+                        15
+                    ]
+                ]
+            }
+        },
+        "source": "viavector",
+        "source-layer": "transportation",
+        "type": "line"
+    },
+    {
+        "filter": [
+            "all",
+            [
+                "!in",
+                "brunnel",
+                "tunnel"
+            ],
+            [
+                "in",
+                "class",
+                "secondary",
+                "tertiary",
+                "primary"
+            ]
+        ],
+        "id": "highway_secondary-tertiary-casing",
+        "layout": {
+            "line-cap": "butt",
+            "line-join": "round",
+            "visibility": "visible"
+        },
+        "paint": {
+            "line-color": "#c7c7c0",
+            "line-opacity": 1,
+            "line-width": {
+                "base": 1.4,
+                "stops": [
+                    [
+                        6,
+                        0.8
+                    ],
+                    [
+                        20,
+                        34
+                    ]
+                ]
+            }
+        },
+        "source": "viavector",
+        "source-layer": "transportation",
+        "type": "line"
+    },
+    {
+        "filter": [
+            "all",
+            [
+                "!in",
+                "brunnel",
+                "tunnel"
+            ],
+            [
+                "in",
+                "class",
+                "primary"
+            ]
+        ],
+        "id": "highway_primary-casing",
+        "layout": {
+            "line-cap": "butt",
+            "line-join": "round",
+            "visibility": "visible"
+        },
+        "minzoom": 5,
+        "paint": {
+            "line-color": "#c7c7c0",
+            "line-opacity": {
+                "stops": [
+                    [
+                        7,
+                        0
+                    ],
+                    [
+                        8,
+                        1
+                    ]
+                ]
+            },
+            "line-width": {
+                "base": 1.2,
+                "stops": [
+                    [
+                        7,
+                        0
+                    ],
+                    [
+                        8,
+                        0.6
+                    ],
+                    [
+                        9,
+                        1.5
+                    ],
+                    [
+                        20,
+                        22
+                    ]
+                ]
+            }
+        },
+        "source": "viavector",
+        "source-layer": "transportation",
+        "type": "line"
+    },
+    {
+        "filter": [
+            "all",
+            [
+                "!in",
+                "brunnel",
+                "tunnel"
+            ],
+            [
+                "in",
+                "class",
+                "trunk"
+            ]
+        ],
+        "id": "highway_trunk-casing",
+        "layout": {
+            "line-cap": "butt",
+            "line-join": "round",
+            "visibility": "visible"
+        },
+        "minzoom": 5,
+        "paint": {
+            "line-color": "#c7c7c0",
+            "line-opacity": {
+                "stops": [
+                    [
+                        5,
+                        0
+                    ],
+                    [
+                        6,
+                        1
+                    ]
+                ]
+            },
+            "line-width": {
+                "base": 1.2,
+                "stops": [
+                    [
+                        5,
+                        0
+                    ],
+                    [
+                        6,
+                        0.6
+                    ],
+                    [
+                        7,
+                        1.5
+                    ],
+                    [
+                        20,
+                        22
+                    ]
+                ]
+            }
+        },
+        "source": "viavector",
+        "source-layer": "transportation",
+        "type": "line"
+    },
+    {
+        "filter": [
+            "all",
+            [
+                "!in",
+                "brunnel",
+                "tunnel"
+            ],
+            [
+                "==",
+                "class",
+                "motorway"
+            ]
+        ],
+        "id": "highway_motorway-casing",
+        "layout": {
+            "line-cap": "butt",
+            "line-join": "round",
+            "visibility": "visible"
+        },
+        "minzoom": 4,
+        "paint": {
+            "line-color": "#ccccbe",
+            "line-opacity": {
+                "stops": [
+                    [
+                        4,
+                        0
+                    ],
+                    [
+                        5,
+                        1
+                    ]
+                ]
+            },
+            "line-width": {
+                "base": 1.4,
+                "stops": [
+                    [
+                        8,
+                        4
+                    ],
+                    [
+                        20,
+                        40
+                    ]
+                ]
+            }
+        },
+        "source": "viavector",
+        "source-layer": "transportation",
+        "type": "line"
+    },
+    {
+        "filter": [
+            "all",
+            [
+                "==",
+                "$type",
+                "Polygon"
+            ],
+            [
+                "in",
+                "brunnel",
+                "bridge"
+            ]
+        ],
+        "id": "road_bridge_area",
+        "layout": {},
+        "paint": {
+            "fill-color": "#ffe",
+            "fill-opacity": 0.5
+        },
+        "source": "viavector",
+        "source-layer": "transportation",
+        "type": "fill"
+    },
+    {
+        "filter": [
+            "all",
+            [
+                "==",
+                "$type",
+                "LineString"
+            ],
+            [
+                "in",
+                "class",
+                "path",
+                "track"
+            ],
+            [
+                "!has",
+                "indoor"
+            ],
+            [
+                "!has",
+                "brunnel"
+            ]
+        ],
+        "id": "road_path",
+        "layout": {
+            "line-cap": "square",
+            "line-join": "bevel"
+        },
+        "paint": {
+            "line-color": "#fff",
+            "line-dasharray": [
+                1,
+                1
+            ],
+            "line-width": {
+                "base": 1.55,
+                "stops": [
+                    [
+                        4,
+                        0.25
+                    ],
+                    [
+                        20,
+                        10
+                    ]
+                ]
+            }
+        },
+        "source": "viavector",
+        "source-layer": "transportation",
+        "type": "line"
+    },
+    {
+        "filter": [
+            "all",
+            [
+                "==",
+                "$type",
+                "LineString"
+            ],
+            [
+                "in",
+                "class",
+                "minor",
+                "service"
+            ]
+        ],
+        "id": "road_minor",
+        "layout": {
+            "line-cap": "round",
+            "line-join": "round"
+    
+
+GET 200 https://jobindex.tiles.viamap.net/v1/icons/sprite.json POST:None
+{
+  "pin": {
+    "width": 24,
+    "height": 36,
+    "sdf": false,
+    "pixelRatio": 1,
+    "x": 0,
+    "y": 0
+  },
+  "airport": {
+    "width": 32,
+    "height": 32,
+    "sdf": false,
+    "pixelRatio": 1,
+    "x": 24,
+    "y": 0
+  },
+  "ancient": {
+    "width": 32,
+    "height": 32,
+    "sdf": false,
+    "pixelRatio": 1,
+    "x": 56,
+    "y": 0
+  },
+  "bathinglake": {
+    "width": 32,
+    "height": 32,
+    "sdf": false,
+    "pixelRatio": 1,
+    "x": 88,
+    "y": 0
+  },
+  "builtheritage": {
+    "width": 32,
+    "height": 32,
+    "sdf": false,
+    "pixelRatio": 1,
+    "x": 120,
+    "y": 0
+  },
+  "church": {
+    "width": 32,
+    "height": 32,
+    "sdf": false,
+    "pixelRatio": 1,
+    "x": 152,
+    "y": 0
+  },
+  "coast": {
+    "width": 32,
+    "height": 32,
+    "sdf": false,
+    "pixelRatio": 1,
+    "x": 184,
+    "y": 0
+  },
+  "daycare": {
+    "width": 32,
+    "height": 32,
+    "sdf": false,
+    "pixelRatio": 1,
+    "x": 216,
+    "y": 0
+  },
+  "doctor": {
+    "width": 32,
+    "height": 32,
+    "sdf": false,
+    "pixelRatio": 1,
+    "x": 248,
+    "y": 0
+  },
+  "empty": {
+    "width": 32,
+    "height": 32,
+    "sdf": false,
+    "pixelRatio": 1,
+    "x": 280,
+    "y": 0
+  },
+  "forest": {
+    "width": 32,
+    "height": 32,
+    "sdf": false,
+    "pixelRatio": 1,
+    "x": 312,
+    "y": 0
+  },
+  "greatestate": {
+    "width": 32,
+    "height": 32,
+    "sdf": false,
+    "pixelRatio": 1,
+    "x": 344,
+    "y": 0
+  },
+  "hospital": {
+    "width": 32,
+    "height": 32,
+    "sdf": false,
+    "pixelRatio": 1,
+    "x": 376,
+    "y": 0
+  },
+  "junction": {
+    "width": 32,
+    "height": 32,
+    "sdf": false,
+    "pixelRatio": 1,
+    "x": 408,
+    "y": 0
+  },
+  "lake": {
+    "width": 32,
+    "height": 32,
+    "sdf": false,
+    "pixelRatio": 1,
+    "x": 440,
+    "y": 0
+  },
+  "library": {
+    "width": 32,
+    "height": 32,
+    "sdf": false,
+    "pixelRatio": 1,
+    "x": 472,
+    "y": 0
+  },
+  "lightrail": {
+    "width": 32,
+    "height": 32,
+    "sdf": false,
+    "pixelRatio": 1,
+    "x": 0,
+    "y": 36
+  },
+  "metro": {
+    "width": 32,
+    "height": 32,
+    "sdf": false,
+    "pixelRatio": 1,
+    "x": 32,
+    "y": 36
+  },
+  "monument": {
+    "width": 32,
+    "height": 32,
+    "sdf": false,
+    "pixelRatio": 1,
+    "x": 64,
+    "y": 36
+  },
+  "naturesite": {
+    "width": 32,
+    "height": 32,
+    "sdf": false,
+    "pixelRatio": 1,
+    "x": 96,
+    "y": 36
+  },
+  "park": {
+    "width": 32,
+    "height": 32,
+    "sdf": false,
+    "pixelRatio": 1,
+    "x": 128,
+    "y": 36
+  },
+  "pharmacy": {
+    "width": 32,
+    "height": 32,
+    "sdf": false,
+    "pixelRatio": 1,
+    "x": 160,
+    "y": 36
+  },
+  "publicbath": {
+    "width": 32,
+    "height": 32,
+    "sdf": false,
+    "pixelRatio": 1,
+    "x": 192,
+    "y": 36
+  },
+  "roadtrain": {
+    "width": 32,
+    "height": 32,
+    "sdf": false,
+    "pixelRatio": 1,
+    "x": 224,
+    "y": 36
+  },
+  "school": {
+    "width": 32,
+    "height": 32,
+    "sdf": false,
+    "pixelRatio": 1,
+    "x": 256,
+    "y": 36
+  },
+  "soccerfield": {
+    "width": 32,
+    "height": 32,
+    "sdf": false,
+    "pixelRatio": 1,
+    "x": 288,
+    "y": 36
+  },
+  "sportshall": {
+    "width": 32,
+    "height": 32,
+    "sdf": false,
+    "pixelRatio": 1,
+    "x": 320,
+    "y": 36
+  },
+  "stop": {
+    "width": 32,
+    "height": 32,
+    "sdf": false,
+    "pixelRatio": 1,
+    "x": 352,
+    "y": 36
+  },
+  "strain": {
+    "width": 32,
+    "height": 32,
+    "sdf": false,
+    "pixelRatio": 1,
+    "x": 384,
+    "y": 36
+  },
+  "supermarket": {
+    "width": 32,
+    "height": 32,
+    "sdf": false,
+    "pixelRatio": 1,
+    "x": 416,
+    "y": 36
+  },
+  "themepark": {
+    "width": 32,
+    "height": 32,
+    "sdf": false,
+    "pixelRatio": 1,
+    "x": 448,
+    "y": 36
+  },
+  "train": {
+    "width": 32,
+    "height": 32,
+    "sdf": false,
+    "pixelRatio": 1,
+    "x": 480,
+    "y": 36
+  },
+  "zoos": {
+    "width": 32,
+    "height": 32,
+    "sdf": false,
+    "pixelRatio": 1,
+    "x": 0,
+    "y": 68
+  },
+  "oneway": {
+    "height": 21,
+    "pixelRatio": 1,
+    "width": 21,
+    "x": 32,
+    "y": 68
+  },
+  "airfield_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 53,
+    "y": 68
+  },
+  "airport_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 70,
+    "y": 68
+  },
+  "alcohol_shop_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 87,
+    "y": 68
+  },
+  "amusement_park_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 104,
+    "y": 68
+  },
+  "aquarium_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 121,
+    "y": 68
+  },
+  "art_gallery_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 138,
+    "y": 68
+  },
+  "attraction_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 155,
+    "y": 68
+  },
+  "bakery_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 172,
+    "y": 68
+  },
+  "bank_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 189,
+    "y": 68
+  },
+  "bar_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 206,
+    "y": 68
+  },
+  "beer_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 223,
+    "y": 68
+  },
+  "bicycle_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 240,
+    "y": 68
+  },
+  "bicycle_rental_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 257,
+    "y": 68
+  },
+  "bus_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 274,
+    "y": 68
+  },
+  "cafe_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 291,
+    "y": 68
+  },
+  "campsite_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 308,
+    "y": 68
+  },
+  "car_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 325,
+    "y": 68
+  },
+  "castle_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 342,
+    "y": 68
+  },
+  "cemetery_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 359,
+    "y": 68
+  },
+  "cinema_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 376,
+    "y": 68
+  },
+  "circle_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 393,
+    "y": 68
+  },
+  "circle_stroked_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 410,
+    "y": 68
+  },
+  "clothing_store_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 427,
+    "y": 68
+  },
+  "college_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 444,
+    "y": 68
+  },
+  "dentist_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 461,
+    "y": 68
+  },
+  "doctor_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 478,
+    "y": 68
+  },
+  "dog_park_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 495,
+    "y": 68
+  },
+  "drinking_water_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 0,
+    "y": 100
+  },
+  "embassy_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 17,
+    "y": 100
+  },
+  "entrance_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 34,
+    "y": 100
+  },
+  "fast_food_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 51,
+    "y": 100
+  },
+  "ferry_terminal_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 68,
+    "y": 100
+  },
+  "fire_station_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 85,
+    "y": 100
+  },
+  "fuel_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 102,
+    "y": 100
+  },
+  "garden_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 119,
+    "y": 100
+  },
+  "golf_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 136,
+    "y": 100
+  },
+  "grocery_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 153,
+    "y": 100
+  },
+  "harbor_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 170,
+    "y": 100
+  },
+  "heliport_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 187,
+    "y": 100
+  },
+  "hospital_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 204,
+    "y": 100
+  },
+  "ice_cream_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 221,
+    "y": 100
+  },
+  "information_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 238,
+    "y": 100
+  },
+  "laundry_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 255,
+    "y": 100
+  },
+  "library_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 272,
+    "y": 100
+  },
+  "lodging_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 289,
+    "y": 100
+  },
+  "marker_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 306,
+    "y": 100
+  },
+  "monument_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 323,
+    "y": 100
+  },
+  "mountain_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 340,
+    "y": 100
+  },
+  "museum_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 357,
+    "y": 100
+  },
+  "music_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 374,
+    "y": 100
+  },
+  "park_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 391,
+    "y": 100
+  },
+  "pharmacy_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 408,
+    "y": 100
+  },
+  "picnic_site_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 425,
+    "y": 100
+  },
+  "pitch_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 442,
+    "y": 100
+  },
+  "place_of_worship_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 459,
+    "y": 100
+  },
+  "playground_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 476,
+    "y": 100
+  },
+  "police_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 493,
+    "y": 100
+  },
+  "post_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 0,
+    "y": 117
+  },
+  "prison_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 17,
+    "y": 117
+  },
+  "rail_light_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 34,
+    "y": 117
+  },
+  "rail_metro_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 51,
+    "y": 117
+  },
+  "railway_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 68,
+    "y": 117
+  },
+  "religious_christian_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 85,
+    "y": 117
+  },
+  "religious_jewish_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 102,
+    "y": 117
+  },
+  "religious_muslim_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 119,
+    "y": 117
+  },
+  "restaurant_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 136,
+    "y": 117
+  },
+  "rocket_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 153,
+    "y": 117
+  },
+  "school_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 170,
+    "y": 117
+  },
+  "shop_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 187,
+    "y": 117
+  },
+  "stadium_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 204,
+    "y": 117
+  },
+  "star_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 221,
+    "y": 117
+  },
+  "suitcase_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 238,
+    "y": 117
+  },
+  "swimming_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 255,
+    "y": 117
+  },
+  "theatre_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 272,
+    "y": 117
+  },
+  "toilet_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 289,
+    "y": 117
+  },
+  "town_hall_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 306,
+    "y": 117
+  },
+  "triangle_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 323,
+    "y": 117
+  },
+  "triangle_stroked_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 340,
+    "y": 117
+  },
+  "us-highway_1": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 357,
+    "y": 117
+  },
+  "us-highway_2": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 374,
+    "y": 117
+  },
+  "us-highway_3": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 21,
+    "x": 391,
+    "y": 117
+  },
+  "us-interstate_1": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 412,
+    "y": 117
+  },
+  "us-interstate_2": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 429,
+    "y": 117
+  },
+  "us-interstate_3": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 21,
+    "x": 446,
+    "y": 117
+  },
+  "veterinary_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 467,
+    "y": 117
+  },
+  "volcano_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 484,
+    "y": 117
+  },
+  "zoo_11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 0,
+    "y": 134
+  },
+  "road_1": {
+    "height": 14,
+    "pixelRatio": 1,
+    "width": 14,
+    "x": 53,
+    "y": 85
+  },
+  "road_2": {
+    "height": 14,
+    "pixelRatio": 1,
+    "width": 20,
+    "x": 17,
+    "y": 134
+  },
+  "road_3": {
+    "height": 14,
+    "pixelRatio": 1,
+    "width": 25,
+    "x": 37,
+    "y": 134
+  },
+  "road_4": {
+    "height": 14,
+    "pixelRatio": 1,
+    "width": 31,
+    "x": 62,
+    "y": 134
+  },
+  "road_5": {
+    "height": 14,
+    "pixelRatio": 1,
+    "width": 36,
+    "x": 93,
+    "y": 134
+  },
+  "road_6": {
+    "height": 14,
+    "pixelRatio": 1,
+    "width": 40,
+    "x": 129,
+    "y": 134
+  },
+  "us-state_1": {
+    "height": 14,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 70,
+    "y": 85
+  },
+  "us-state_2": {
+    "height": 14,
+    "pixelRatio": 1,
+    "width": 22,
+    "x": 169,
+    "y": 134
+  },
+  "us-state_3": {
+    "height": 14,
+    "pixelRatio": 1,
+    "width": 27,
+    "x": 191,
+    "y": 134
+  },
+  "us-state_4": {
+    "height": 14,
+    "pixelRatio": 1,
+    "width": 32,
+    "x": 218,
+    "y": 134
+  },
+  "us-state_5": {
+    "height": 14,
+    "pixelRatio": 1,
+    "width": 37,
+    "x": 250,
+    "y": 134
+  },
+  "us-state_6": {
+    "height": 14,
+    "pixelRatio": 1,
+    "width": 42,
+    "x": 287,
+    "y": 134
+  },
+  "wave": {
+    "height": 8,
+    "pixelRatio": 1,
+    "width": 16,
+    "x": 32,
+    "y": 89
+  }
+}
+
+GET 200 https://jobindex.tiles.viamap.net/sources/v1/viavector.json?token=eyJkcGZ4IjogImpvYmluZGV4IiwgInByaXZzIjogInIxWjByMEYwazZCdFdxUWNPVXlrQi95NlNVcEp2MlFiZ3lYZXRxNEhZNFhPLzNZclcwK0s5NjRIWTRYTy8zWXJSQU53V1E9PSJ9.UE5i0EX5hm7hHNj34KS7VyUBIdL7rQA6YAz0QSSSVAJiuHGEwvAo7Svu0t5UE5iXfAZvc%2BS6eDqv%2FbVw44jdcg POST:None
+{"tiles": ["https://jobindex.a.tiles.viamap.net/v1/viavector/{z}/{x}/{y}/?token=eyJkcGZ4IjogImpvYmluZGV4IiwgInByaXZzIjogInIxWjByMEYwazZCdFdxUWNPVXlrQi95NlNVcEp2MlFiZ3lYZXRxNEhZNFhPLzNZclcwK0s5NjRIWTRYTy8zWXJSQU53V1E9PSJ9.UE5i0EX5hm7hHNj34KS7VyUBIdL7rQA6YAz0QSSSVAJiuHGEwvAo7Svu0t5UE5iXfAZvc+S6eDqv/bVw44jdcg", "https://jobindex.b.tiles.viamap.net/v1/viavector/{z}/{x}/{y}/?token=eyJkcGZ4IjogImpvYmluZGV4IiwgInByaXZzIjogInIxWjByMEYwazZCdFdxUWNPVXlrQi95NlNVcEp2MlFiZ3lYZXRxNEhZNFhPLzNZclcwK0s5NjRIWTRYTy8zWXJSQU53V1E9PSJ9.UE5i0EX5hm7hHNj34KS7VyUBIdL7rQA6YAz0QSSSVAJiuHGEwvAo7Svu0t5UE5iXfAZvc+S6eDqv/bVw44jdcg", "https://jobindex.c.tiles.viamap.net/v1/viavector/{z}/{x}/{y}/?token=eyJkcGZ4IjogImpvYmluZGV4IiwgInByaXZzIjogInIxWjByMEYwazZCdFdxUWNPVXlrQi95NlNVcEp2MlFiZ3lYZXRxNEhZNFhPLzNZclcwK0s5NjRIWTRYTy8zWXJSQU53V1E9PSJ9.UE5i0EX5hm7hHNj34KS7VyUBIdL7rQA6YAz0QSSSVAJiuHGEwvAo7Svu0t5UE5iXfAZvc+S6eDqv/bVw44jdcg", "https://jobindex.d.tiles.viamap.net/v1/viavector/{z}/{x}/{y}/?token=eyJkcGZ4IjogImpvYmluZGV4IiwgInByaXZzIjogInIxWjByMEYwazZCdFdxUWNPVXlrQi95NlNVcEp2MlFiZ3lYZXRxNEhZNFhPLzNZclcwK0s5NjRIWTRYTy8zWXJSQU53V1E9PSJ9.UE5i0EX5hm7hHNj34KS7VyUBIdL7rQA6YAz0QSSSVAJiuHGEwvAo7Svu0t5UE5iXfAZvc+S6eDqv/bVw44jdcg"], "attribution": "<a href=\"https://www.viamap.net/\" target=\"_blank\">&copy; viamap ApS</a> <a href=\"https://www.openstreetmap.org/copyright\" target=\"_blank\">&copy; OpenStreetMap contributors</a>", "description": "A tileset showcasing all layers provided by viamap.", "format": "pbf", "pixel_scale": "256", "minzoom": 0, "maxzoom": 16, "tilejson": "2.0.0", "id": "viavector", "name": "viavector", "vector_layers": [{"maxzoom": 16, "fields": {"class": "String"}, "minzoom": 0, "id": "water", "description": ""}, {"maxzoom": 16, "fields": {"name:nonlatin": "String", "class": "String", "name": "String", "brunnel": "String", "name:latin": "String"}, "minzoom": 0, "id": "waterway", "description": ""}, {"maxzoom": 16, "fields": {"class": "String", "subclass": "String"}, "minzoom": 0, "id": "landcover", "description": ""}, {"maxzoom": 16, "fields": {"class": "String"}, "minzoom": 0, "id": "landuse", "description": ""}, {"maxzoom": 16, "fields": {"name": "String", "name:nonlatin": "String", "name:latin": "String", "rank": "Number", "ele": "Number", "osm_id": "Number", "ele_ft": "Number"}, "minzoom": 0, "id": "mountain_peak", "description": ""}, {"maxzoom": 16, "fields": {"class": "String"}, "minzoom": 0, "id": "park", "description": ""}, {"maxzoom": 16, "fields": {"admin_level": "Number", "disputed": "Number", "maritime": "Number"}, "minzoom": 0, "id": "boundary", "description": ""}, {"maxzoom": 16, "fields": {"ref": "String", "class": "String"}, "minzoom": 0, "id": "aeroway", "description": ""}, {"maxzoom": 16, "fields": {"layer": "Number", "indoor": "Number", "service": "String", "oneway": "Number", "brunnel": "String", "level": "Number", "ramp": "Number", "class": "String", "subclass": "String"}, "minzoom": 0, "id": "transportation", "description": ""}, {"maxzoom": 16, "fields": {"render_min_height": "Number", "render_height": "Number", "osm_id": "Number"}, "minzoom": 0, "id": "building", "description": ""}, {"maxzoom": 16, "fields": {"name:nonlatin": "String", "class": "String", "name": "String", "name:latin": "String"}, "minzoom": 0, "id": "water_name", "description": ""}, {"maxzoom": 16, "fields": {"layer": "Number", "name:nonlatin": "String", "indoor": "Number", "class": "String", "network": "String", "name": "String", "level": "Number", "ref_length": "Number", "subclass": "String", "name:latin": "String", "ref": "String"}, "minzoom": 0, "id": "transportation_name", "description": ""}, {"maxzoom": 16, "fields": {"name": "String", "name:nonlatin": "String", "name:latin": "String", "rank": "Number", "capital": "Number", "iso_a2": "String", "class": "String"}, "minzoom": 0, "id": "place", "description": ""}, {"maxzoom": 16, "fields": {"housenumber": "String"}, "minzoom": 16, "id": "housenumber", "description": ""}, {"maxzoom": 16, "fields": {"name": "String", "name:nonlatin": "String", "subclass": "String", "rank": "Number", "name:latin": "String", "class": "String", "agg_stop": "Number"}, "minzoom": 0, "id": "poi", "description": ""}, {"maxzoom": 16, "fields": {"icao": "String", "iata": "String", "name": "String", "osm_id": "Number", "ele_ft": "Number", "name:nonlatin": "String", "name:latin": "String", "class": "String", "ele": "Number"}, "minzoom": 0, "id": "aerodrome_label", "description": ""}], "bounds": [-180, -89.9511, 180, 89.9511], "version": "1.0", "type": "vector"}
