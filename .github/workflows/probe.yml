@@ -19,8 +19,7 @@ jobs:
       - run: pip install playwright==1.47.0 && python -m playwright install --with-deps chromium
       - env:
           URLS: ${{ github.event.inputs.urls }}
-        run: |
-          if [ "$URLS" = "jobnet" ]; then pip install -q requests && python tools/jobnet_debug.py; else python tools/probe.py $URLS; fi
+        run: python tools/probe.py $URLS
       - name: Gem output på probe-out-branch
         if: always()
         run: |

@@ -1,7 +1,6 @@
 """Jobnet: den offentlige søgning har et JSON-endpoint med hele opslagsteksten."""
 from datetime import datetime, timedelta, timezone
 
-from ..http import get, session
 from ..job import Job
 from ..text import html_to_text
 
@@ -47,29 +46,47 @@ def _job(ad, query):
     )
 
 
-def _warmup():
-    """BFF'et svarer 401 uden de cookies, som forsiden og login-status sætter."""
-    get("https://jobnet.dk/find-job", pause=0)
-    get("https://jobnet.dk/bff/Authentication/status", params={"refresh": "true"}, pause=0.5,
-        headers={"Accept": "application/json", "Referer": "https://jobnet.dk/find-job"})
-    print(f"  Jobnet cookies: {sorted(session.cookies.get_dict(domain='jobnet.dk') or session.cookies.get_dict())}")
+def _search_all(queries):
+    """Jobnets BFF ligger bag en JS-udfordring (myracloud), så søgningen køres i en rigtig browser.
+    Siden laver selv kaldet til /bff/FindJob/Search; vi omskriver parametrene og læser svaret."""
+    from urllib.parse import parse_qs, urlencode, urlsplit, urlunsplit
+
+    from playwright.sync_api import sync_playwright
+
+    wanted = {}
+    results = {}
+
+    def rewrite(route):
+        parts = urlsplit(route.request.url)
+        qs = {k: v[0] for k, v in parse_qs(parts.query).items()}
+        qs.update(wanted)
+        route.continue_(url=urlunsplit(parts._replace(query=urlencode(qs))))
+
+    with sync_playwright() as p:
+        browser = p.chromium.launch()
+        page = browser.new_page(locale="da-DK")
+        page.route("**/bff/FindJob/Search*", rewrite)
+        for q in queries:
+            for n in range(1, MAX_PAGES + 1):
+                wanted.clear()
+                wanted.update({"resultsPerPage": PER_PAGE, "pageNumber": n, "orderType": "PublicationDate", "searchString": q})
+                with page.expect_response(lambda r: "/bff/FindJob/Search" in r.url, timeout=45000) as resp:
+                    page.goto(f"https://jobnet.dk/find-job?searchString={q}", wait_until="domcontentloaded", timeout=45000)
+                r = resp.value
+                if r.status != 200:
+                    raise RuntimeError(f"Jobnet svarede {r.status} for '{q}'")
+                ads = r.json().get("jobAds") or []
+                recent = [a for a in ads if _recent(a)]
+                results.setdefault(q, []).extend(recent)
+                if len(ads) < PER_PAGE or len(recent) < len(ads):
+                    break
+        browser.close()
+    return results
 
 
 def fetch(queries, seen):
-    _warmup()
     jobs = {}
-    for q in queries:
-        for page in range(1, MAX_PAGES + 1):
-            data = get(URL, params={
-                "resultsPerPage": PER_PAGE, "pageNumber": page, "orderType": "PublicationDate",
-                "searchString": q, "postalCode": 8000, "kmRadius": 80,
-            }, headers={"Accept": "application/json", "Referer": "https://jobnet.dk/find-job"}).json()
-            ads = data.get("jobAds") or []
-            if page == 1:
-                print(f"  Jobnet '{q}': {len(ads)} på side 1, felter: {[k for k in data if k != 'jobAds']}")
-            recent = [a for a in ads if _recent(a)]
-            for a in recent:
-                jobs.setdefault(a["jobAdId"], _job(a, q))
-            if len(ads) < PER_PAGE or len(recent) < len(ads):
-                break
+    for q, ads in _search_all(queries).items():
+        for a in ads:
+            jobs.setdefault(a["jobAdId"], _job(a, q))
     return list(jobs.values())
