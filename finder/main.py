@@ -5,6 +5,7 @@ import os
 import sys
 import traceback
 from collections import Counter
+from itertools import zip_longest
 from datetime import date, timedelta
 from pathlib import Path
 
@@ -100,8 +101,11 @@ def main(argv):
         state["chat_id"] = chat_id
     alerts = []
 
+    only = os.environ.get("KILDER", "").lower()
     jobs = []
     for name, fetch in SOURCES:
+        if only and name.lower() not in only:
+            continue
         try:
             found = fetch(state["seen"])
             print(f"{name}: {len(found)} job fundet")
@@ -134,7 +138,11 @@ def main(argv):
         candidates.append(j)
     print(f"Frasorteret: {dict(reasons)}; {len(candidates)} kandidater")
 
-    candidates = candidates[:MAX_SEND]
+    by_source = {}
+    for j in candidates:
+        by_source.setdefault(j.source, []).append(j)
+    mixed = [j for group in zip_longest(*by_source.values()) for j in group if j]
+    candidates = mixed[:MAX_SEND]
     try:
         jobindex.label([j for j in candidates if j.source == "Jobindex"])
     except Exception:

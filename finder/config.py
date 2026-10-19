@@ -58,10 +58,11 @@ ALLOWED_TOWNS = re.compile(
 # Titler der aldrig er relevante (for senior, ledelse, studiejob, butik osv.).
 EXCLUDE_TITLE = re.compile(
     r"\bsenior|\bsr\.?\s|\blead\b|leder\b|\w*chef\b|head of|director|direktør|\bvp\b|vice president|\bcfo\b|"
-    r"\bpartner\b|erfaren|experienced|principal|"
-    r"student|studie|studerende|praktik|intern\b|internship|\belev\b|lærling|apprentice|frivillig|fleksjob|"
-    r"butik|ekspedient|salgsassistent|kasseassistent|lagermedarbejder|chauffør|"
-    r"sygeplejer|lærer\b|pædagog|læge\b|tandlæge|ingeniør|engineer|developer|udvikler",
+    r"\bpartner\b|erfaren|experienced|principal|expert|ekspert|interim|ansvarlig\b|"
+    r"student|studie|studerende|praktik|intern\b|internship|elev\b|lærling|apprentice|frivillig|fleksjob|"
+    r"butik|ekspedient|salgsassistent|kasseassistent|lagermedarbejder|chauffør|vagtplan|"
+    r"sygeplejer|lærer\b|pædagog|læge\b|tandlæge|bioanalytiker|laborant|postdoc|ph\.?d|lektor|professor|"
+    r"forsker|researcher|adjunkt|ingeniør|engineer|developer|udvikler|scientist|architect|arkitekt",
     re.I,
 )
 # "Manager" er kun med, hvis titlen også siger junior/assistant.
@@ -70,7 +71,7 @@ JUNIOR = re.compile(r"junior|assistant|assistent|graduate|trainee|nyuddannet", r
 
 # Mindst ét af disse skal stå i titlen.
 RELEVANT_TITLE = re.compile(
-    r"control|analy|økonomi|finans|finance|financial|regnskab|bogholder|bogføring|account|revision|revisor|"
+    r"controller|controlling|analyst|analytiker|analyse|økonomi|finans|finance|financial|regnskab|bogholder|bogføring|account|revision|revisor|"
     r"business intelligence|\bbi\b|power bi|\bdata|rapportering|reporting|budget|planner|planlægger|planning|"
     r"forecast|demand|category|indkøb|purchas|procurement|buyer|supply chain|pricing|prisanaly|kreditor|debitor|"
     r"lønbogholder|payroll|treasury|fp&a|kalkul|commercial|sales support|salgssupport|excel|kpi|insight",
@@ -83,7 +84,7 @@ TOO_MUCH_EXPERIENCE = re.compile(
     r"|\b([3-9]|1[0-9])\s*\+?\s*(?:-\s*\d+\s*)?years?\b[^.\n]{0,60}experience",
     re.I,
 )
-STUDY_JOB = re.compile(r"studiejob|studenterjob|ved siden af (?:dit|dine) studie|studentermedhjælp|praktikplads|praktikforløb", re.I)
+STUDY_JOB = re.compile(r"som frivillig|frivillige|ulønnet|studiejob|studenterjob|ved siden af (?:dit|dine) studie|studentermedhjælp|praktikplads|praktikforløb", re.I)
 
 TEMPORARY = re.compile(
     r"barsel|vikariat|\bvikar\b|tidsbegræns|midlertidig|projektansættelse|projektansat|fixed[- ]term|temporary|"

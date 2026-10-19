@@ -8,6 +8,10 @@ on:
         description: "Kun log, send ikke Telegram"
         type: boolean
         default: false
+      kilder:
+        description: "Kun disse kilder (fx Jobnet), tom = alle"
+        required: false
+        default: ""
 concurrency:
   group: tjek
   cancel-in-progress: false
@@ -29,6 +33,7 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          KILDER: ${{ github.event.inputs.kilder }}
         run: python -m finder.main ${{ github.event.inputs.dry_run == 'true' && '--dry-run' || '' }}
       - name: Gem hvilke job der er set
         if: always()

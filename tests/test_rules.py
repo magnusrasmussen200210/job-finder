@@ -52,3 +52,12 @@ def test_dedupe_key():
     b = j("Junior controller", source="LinkedIn")
     a.company, b.company = "Terma A/S", "Terma"
     assert rules.dedupe_key(a) == rules.dedupe_key(b)
+
+
+def test_noise_titles():
+    for t in ["Create great content and control the live stream", "Postdoc position in biology", "Bioanalytiker søges",
+              "Vagtplanlægger", "Indkøbselev til vores Produktteam", "Planning Expert, Site Scheduling",
+              "Data Scientist Supporting Global Planning", "Interim Financial Controller", "Regnskabsansvarlig",
+              "Eksterne lektorer til undervisning på HD"]:
+        assert rules.reject_reason(j(t)), t
+    assert rules.reject_reason(j("Kasserer", "Vi søger en frivillig kasserer")), "frivillig"

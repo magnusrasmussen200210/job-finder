@@ -56,6 +56,8 @@ def fetch(queries, seen):
                 "searchString": q, "postalCode": 8000, "kmRadius": 80,
             }).json()
             ads = data.get("jobAds") or []
+            if page == 1:
+                print(f"  Jobnet '{q}': {len(ads)} på side 1, felter: {[k for k in data if k != 'jobAds']}")
             recent = [a for a in ads if _recent(a)]
             for a in recent:
                 jobs.setdefault(a["jobAdId"], _job(a, q))
