@@ -1,7 +1,7 @@
 """Jobnet: den offentlige søgning har et JSON-endpoint med hele opslagsteksten."""
 from datetime import datetime, timedelta, timezone
 
-from ..http import get
+from ..http import get, session
 from ..job import Job
 from ..text import html_to_text
 
@@ -47,14 +47,23 @@ def _job(ad, query):
     )
 
 
+def _warmup():
+    """BFF'et svarer 401 uden de cookies, som forsiden og login-status sætter."""
+    get("https://jobnet.dk/find-job", pause=0)
+    get("https://jobnet.dk/bff/Authentication/status", params={"refresh": "true"}, pause=0.5,
+        headers={"Accept": "application/json", "Referer": "https://jobnet.dk/find-job"})
+    print(f"  Jobnet cookies: {sorted(session.cookies.get_dict(domain='jobnet.dk') or session.cookies.get_dict())}")
+
+
 def fetch(queries, seen):
+    _warmup()
     jobs = {}
     for q in queries:
         for page in range(1, MAX_PAGES + 1):
             data = get(URL, params={
                 "resultsPerPage": PER_PAGE, "pageNumber": page, "orderType": "PublicationDate",
                 "searchString": q, "postalCode": 8000, "kmRadius": 80,
-            }).json()
+            }, headers={"Accept": "application/json", "Referer": "https://jobnet.dk/find-job"}).json()
             ads = data.get("jobAds") or []
             if page == 1:
                 print(f"  Jobnet '{q}': {len(ads)} på side 1, felter: {[k for k in data if k != 'jobAds']}")
