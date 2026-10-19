@@ -1,0 +1,5 @@
+GET 200 https://www.jobindex.dk/api/login/user/check POST:None
+{"isLoggedIn":false}
+
+PUT 201 https://www.jobindex.dk/api/cookie-consent/v1/log POST:{"id":"074f56cb-ca70-46e0-9574-7bdf63db03cf","time":"2026-10-19T11:00:02.468Z","version":1,"terms_version":219,"consent":{}}
+{}
