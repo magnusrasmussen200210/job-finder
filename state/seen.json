@@ -23,6 +23,7 @@
   "data management consultant|netcompany": "2026-10-28",
   "esg specialist data climate reporting bolia|bolia": "2026-10-21",
   "finance assistant til krydsfeltet mellem økonomi data systemer og processer|knud jepsen": "2026-10-27",
+  "finance assistant|good food": "2026-10-31",
   "finance assistant|wanzl nordic": "2026-10-22",
   "financial controller|hmf": "2026-10-26",
   "finansieringsmedarbejder til car finance|jyske finans": "2026-10-29",
@@ -51,6 +52,7 @@
   "planner|jack jones": "2026-10-24",
   "prodan a s søger indkøbsassistent|prodan": "2026-10-19",
   "product master data administrator|danish crown": "2026-10-20",
+  "project controller lystrup or grenaa|terma": "2026-10-31",
   "project planning specialist medium voltage products|abb": "2026-10-19",
   "regnskabskonsulent til beierholm horsens|beierholm": "2026-10-30",
   "retail planner|jjxx": "2026-10-30",
@@ -71,7 +73,7 @@
   "økonomimedarbejder|relationmedia": "2026-10-19"
  },
  "errors": {
-  "Jobindex": 10
+  "Jobindex": 11
  },
  "seen": {
   "Jobindex:h1680460": "2026-10-20",
@@ -1835,6 +1837,7 @@
   "Jobnet:2f025a90-1d89-488d-9caf-9095771765c2": "2026-10-28",
   "Jobnet:2f057fb6-3395-4c15-9d98-b25a44591149": "2026-10-19",
   "Jobnet:2f45f85a-9305-44cf-a087-eb3c017966dd": "2026-10-28",
+  "Jobnet:2f8694d2-c2f9-42e6-a5c9-2757317bc4e9": "2026-10-31",
   "Jobnet:2f951907-856e-47ac-a45e-2719a9aacac4": "2026-10-29",
   "Jobnet:2f9f11ff-83a2-452f-a140-fe12f6e3ba11": "2026-10-26",
   "Jobnet:2fd2617d-3b2a-41ca-9f3a-ae2988eb48d8": "2026-10-19",
@@ -2598,6 +2601,7 @@
   "Jobnet:bd5d0903-8174-4411-aa1c-be9a24f163b9": "2026-10-19",
   "Jobnet:be52283c-eb8b-44b4-8ebf-e05c890702aa": "2026-10-28",
   "Jobnet:be589488-2f7a-4339-ae6f-ea216a9c81d1": "2026-10-26",
+  "Jobnet:be7c08ce-a6d3-4c11-b88d-a6224782e7c0": "2026-10-31",
   "Jobnet:be89fac8-8050-4438-9de6-00332514c5f2": "2026-10-19",
   "Jobnet:bed8349c-29b6-49dd-bcfa-d7c488296f69": "2026-10-19",
   "Jobnet:bf1bffb0-faf4-4b69-a103-81ecdd1e29c5": "2026-10-19",
@@ -2623,9 +2627,11 @@
   "Jobnet:c23089f8-de55-4944-b938-822f007493e3": "2026-10-30",
   "Jobnet:c248512f-e797-42ed-b89d-ad6f18c71e77": "2026-10-19",
   "Jobnet:c26a4a9b-32db-42a5-a6eb-2ff9959c650a": "2026-10-26",
+  "Jobnet:c2b0cdf5-16b2-488a-9e23-e5f4faa93346": "2026-10-31",
   "Jobnet:c2ecd9a5-4674-4310-ad19-c64d5505c10e": "2026-10-28",
   "Jobnet:c31e35b6-3efb-43d9-b8fe-771adf086abc": "2026-10-29",
   "Jobnet:c34071a2-1943-4272-8af1-eb2a38882417": "2026-10-30",
+  "Jobnet:c353cd0b-56f7-43e4-bfe3-c824493e01b4": "2026-10-31",
   "Jobnet:c377c0cb-cf04-41a2-b26d-55a332d40255": "2026-10-19",
   "Jobnet:c3923d80-3128-48a5-82cf-a6b2c9acef1f": "2026-10-19",
   "Jobnet:c39549ea-9967-40f6-a58c-9ac638513e19": "2026-10-24",
@@ -2689,6 +2695,7 @@
   "Jobnet:cdf4ad8d-4cbd-4d45-ae45-a13e6cd926d2": "2026-10-28",
   "Jobnet:ce237fd7-257f-420d-b630-3b9e3b5b6689": "2026-10-19",
   "Jobnet:ce53bdde-0e6b-47a0-89ee-2e364f348f3c": "2026-10-30",
+  "Jobnet:ce56d89b-3091-4444-8d13-0a5219d2488a": "2026-10-31",
   "Jobnet:ce854fb4-95cc-4722-ae21-e24067b2cfde": "2026-10-26",
   "Jobnet:ce951a3b-7f40-445d-9429-26e9797e962e": "2026-10-26",
   "Jobnet:ce9da709-7337-4b54-bfdc-da3acbf3aebf": "2026-10-26",
@@ -2989,6 +2996,7 @@
   "Jobnet:fdfc969c-91db-434e-814c-3826c3cde75f": "2026-10-19",
   "Jobnet:fe610a37-501b-46e0-b197-14d781201d0b": "2026-10-30",
   "Jobnet:fe749efd-a5cd-4e3f-addd-d696a8c3d853": "2026-10-27",
+  "Jobnet:fe79621d-6472-4a53-8674-881fdccc8e3a": "2026-10-31",
   "Jobnet:fe9f9953-3d99-43bb-a386-c4d65bb96b1d": "2026-10-26",
   "Jobnet:fea1c3b2-ee52-4681-ad4b-a356aee1a420": "2026-10-19",
   "Jobnet:fee19f41-f600-4d85-ac99-6f67bb9d08a1": "2026-10-28",
@@ -3000,6 +3008,7 @@
   "LinkedIn:4359579537": "2026-10-19",
   "LinkedIn:4365559889": "2026-10-19",
   "LinkedIn:4369497275": "2026-10-26",
+  "LinkedIn:4393505108": "2026-10-31",
   "LinkedIn:4396304207": "2026-10-19",
   "LinkedIn:4416494929": "2026-10-25",
   "LinkedIn:4423505873": "2026-10-19",
@@ -3022,6 +3031,7 @@
   "LinkedIn:4457954232": "2026-10-30",
   "LinkedIn:4457961260": "2026-10-30",
   "LinkedIn:4458387079": "2026-10-29",
+  "LinkedIn:4458641433": "2026-10-31",
   "LinkedIn:4459202030": "2026-10-19",
   "LinkedIn:4460710580": "2026-10-19",
   "LinkedIn:4461258203": "2026-10-19",
@@ -3050,6 +3060,7 @@
   "LinkedIn:4466686167": "2026-10-19",
   "LinkedIn:4467084177": "2026-10-26",
   "LinkedIn:4467600277": "2026-10-19",
+  "LinkedIn:4468004685": "2026-10-31",
   "LinkedIn:4468397602": "2026-10-19",
   "LinkedIn:4468586230": "2026-10-19",
   "LinkedIn:4468613754": "2026-10-30",
@@ -3127,6 +3138,7 @@
   "LinkedIn:4476660991": "2026-10-19",
   "LinkedIn:4476666387": "2026-10-19",
   "LinkedIn:4476675647": "2026-10-19",
+  "LinkedIn:4476801618": "2026-10-31",
   "LinkedIn:4477004289": "2026-10-19",
   "LinkedIn:4477071916": "2026-10-19",
   "LinkedIn:4477097009": "2026-10-19",
@@ -3365,6 +3377,7 @@
   "LinkedIn:4485368200": "2026-10-30",
   "LinkedIn:4485372273": "2026-10-30",
   "LinkedIn:4485394858": "2026-10-30",
-  "LinkedIn:4485600027": "2026-10-30"
+  "LinkedIn:4485600027": "2026-10-30",
+  "LinkedIn:4485688580": "2026-10-31"
  }
 }
