@@ -74,8 +74,8 @@
   "økonomimedarbejder|relationmedia": "2026-10-19"
  },
  "errors": {
-  "Jobindex": 16,
-  "LinkedIn": 2
+  "Jobindex": 17,
+  "LinkedIn": 3
  },
  "seen": {
   "Jobindex:h1680460": "2026-10-20",
@@ -1859,6 +1859,7 @@
   "Jobnet:30ce9102-cee7-4515-b428-be920263158f": "2026-10-29",
   "Jobnet:3134fb73-a472-4c12-94eb-0bcecd399820": "2026-10-28",
   "Jobnet:3168f71d-b049-42aa-8aaa-67df6469dfa3": "2026-10-19",
+  "Jobnet:320b2bad-b757-470a-8dfb-bbad36ce293a": "2026-11-01",
   "Jobnet:32174978-dfe8-43c0-b242-f96ef90744d4": "2026-10-30",
   "Jobnet:3220e317-86a1-42b0-ab3f-85babb88bf7b": "2026-10-19",
   "Jobnet:324149ac-5478-4fad-916d-dcc7c5f5eed6": "2026-10-19",
@@ -2192,6 +2193,7 @@
   "Jobnet:725bc1e8-8a30-4dc2-8a7b-62406b6e91b5": "2026-10-26",
   "Jobnet:726c2b18-e78f-4cb2-8fe6-abe43218760e": "2026-10-19",
   "Jobnet:728af679-3dd3-4f10-a41d-930e95241236": "2026-10-19",
+  "Jobnet:72ca0781-7549-436f-8366-739ceaad0a86": "2026-11-01",
   "Jobnet:72fc0b28-af75-4ec8-ada6-721154f4ac06": "2026-10-30",
   "Jobnet:730652bc-eff4-4530-b169-cbd4a6fb8c17": "2026-10-21",
   "Jobnet:73411cab-a7f4-488e-a0cd-14dfe6c3b555": "2026-10-19",
@@ -3045,6 +3047,7 @@
   "Jobnet:fd97f1cb-ecef-4a4a-9e42-e86839403528": "2026-10-30",
   "Jobnet:fda8e71e-1c43-4cab-b46a-bc027dacd5a5": "2026-10-30",
   "Jobnet:fdfc969c-91db-434e-814c-3826c3cde75f": "2026-10-19",
+  "Jobnet:fe5b64d6-19be-45c8-b100-c7c1390510cf": "2026-11-01",
   "Jobnet:fe610a37-501b-46e0-b197-14d781201d0b": "2026-10-30",
   "Jobnet:fe749efd-a5cd-4e3f-addd-d696a8c3d853": "2026-10-27",
   "Jobnet:fe79621d-6472-4a53-8674-881fdccc8e3a": "2026-10-31",
