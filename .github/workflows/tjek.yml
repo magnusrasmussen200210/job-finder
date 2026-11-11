@@ -1,7 +1,8 @@
 name: Tjek job
 on:
-  schedule:
-    - cron: "23 * * * *"
+  # Slukket 2026-11-11 (Magnus har fået job). Fjern "#" i de to linjer nedenfor for at tænde igen.
+  # schedule:
+  #   - cron: "23 * * * *"
   workflow_dispatch:
     inputs:
       dry_run:
